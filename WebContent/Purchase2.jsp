@@ -20,11 +20,6 @@
 		});
 	});
 </script>
-<script type="text/javascript">
-	document.getElementById("myButton").onclick = function() {
-		location.href = "Confirm.html";
-	};
-</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Book Store - Order Confirmation</title>
 
@@ -63,7 +58,7 @@
 		</c:forEach>
 		<tr>
 			<td>
-				<button id="myButton" class="float-left submit-button">Confirm</button>
+				<button  onclick="location.href = 'Confirm.html';" id="myButton" class="float-left submit-button">Confirm</button>
 			</td>
 
 
