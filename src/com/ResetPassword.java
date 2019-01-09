@@ -21,11 +21,13 @@ public class ResetPassword extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 	try {
 	    String password = req.getParameter("setPassword");
+	    System.out.println(password);
 	    //PrintWriter out = res.getWriter();
 	    Cookie ck[] = req.getCookies();
 	    //out.print("Hello " + ck[0].getValue());
 	    //out.close();
 	    int mobile_no = Integer.parseInt(ck[0].getValue());
+	    System.out.println(mobile_no);
 	    String update_password = "update users set password='" + password + "' where mobile_no='" + mobile_no + "'";
 	    String verify_update_password = "select * from users where mobile_no='" + mobile_no + "'";
 	    Class.forName("com.mysql.jdbc.Driver");
@@ -41,7 +43,7 @@ public class ResetPassword extends HttpServlet {
 		out.write("<p id='forgotPassword' style='color: green; font-size: larger;'>password reset successfully</p>");
 		rd = req.getRequestDispatcher("Welcome.jsp");
 		rd.include(req, res);
-//	    res.sendRedirect("Welcome.jsp");
+	    res.sendRedirect("Welcome.jsp");
 	} catch (Exception e) {
 	    System.out.println(e);
 	}
